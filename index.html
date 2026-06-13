@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOKI NALLSTORE.ID - Platform Joki MLBB</title>
+    <style>
+        /* BASE RESET & FONTS */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0b1426;
+            color: #ffffff;
+            padding-bottom: 50px;
+        }
+
+        /* NAVBAR & HEADER */
+        .navbar {
+            background-color: #0b1426;
+            border-bottom: 1px solid #1e2d4a;
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            background-color: #2563eb;
+            color: #ffffff;
+            font-weight: bold;
+            font-style: normal;
+            padding: 2px 10px;
+            border-radius: 6px;
+            margin-right: 8px;
+            font-size: 16px;
+        }
+
+        .logo-text {
+            font-weight: 900;
+            font-style: italic;
+            font-size: 18px;
+            color: #3b82f6;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-sub {
+            color: #9ca3af;
+            font-size: 11px;
+            font-style: normal;
+            font-weight: 400;
+            margin-left: 4px;
+        }
+
+        .menu-toggle {
+            background: none;
+            border: none;
+            color: #9ca3af;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* DROPDOWN MENU */
+        .dropdown-menu {
+            display: none;
+            background-color: #0b1426;
+            border-bottom: 1px solid #1e2d4a;
+            padding: 16px 20px;
+        }
+
+        .dropdown-menu.active {
+            display: block;
+        }
+
+        .btn-hubungi-kami {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            background-color: #1d4ed8;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 16px;
+            transition: background-color 0.2s;
+            box-shadow: 0 4px 12px rgba(29, 78, 216, 0.3);
+        }
+
+        .dropdown-menu a.menu-link {
+            display: block;
+            color: #3b82f6;
+            text-decoration: none;
+            padding: 10px 0;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* MAIN CONTAINER */
+        .container {
+            max-width: 450px;
+            margin: 0 auto;
+            padding: 20px 16px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+            margin-top: 10px;
+        }
+
+        .title-line {
+            width: 5px;
+            height: 28px;
+            background-color: #3b82f6;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+
+        /* CARD BLOCK */
+        .card-block {
+            background-color: #111c33;
+            border: 1px solid #1e2d4a;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* PRICE GRID */
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .price-item {
+            background-color: #111c33;
+            border: 1px solid #1e2d4a;
+            border-radius: 12px;
+            padding: 16px 10px;
+            text-align: center;
+        }
+
+        .tier-title {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #9ca3af;
+            font-weight: 700;
+        }
+
+        .tier-price {
+            font-size: 17px;
+            font-weight: 800;
+            color: #3b82f6;
+            margin: 6px 0;
+        }
+
+        .tier-unit {
+            font-size: 11px;
+            color: #6b7280;
+        }
+
+        /* STEP STYLING */
+        .step-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .step-number {
+            background-color: #2563eb;
+            color: #ffffff;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 12px;
+            margin-right: 12px;
+        }
+
+        .step-title {
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 14px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 12px;
+            color: #9ca3af;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .form-input {
+            width: 100%;
+            background-color: #0b1426;
+            border: 1px solid #1e2d4a;
+            border-radius: 10px;
+            padding: 12px;
+            color: #ffffff;
+            font-size: 13px;
+            transition: border-color 0.2s;
+        }
+
+        .form-input:focus {
+            border-color: #3b82f6;
+            outline: none;
+        }
+
+        select.form-input {
+            appearance: none;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 16px;
+            padding-right: 40px;
+            cursor: pointer;
+        }
+
+        /* CONTROLLER JUMLAH ORDER MINUS PLUS */
+        .counter-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .counter-input {
+            flex: 1;
+            background-color: #1e2d4a;
+            border: none;
+            border-radius: 10px;
+            padding: 12px;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .btn-counter {
+            width: 42px;
+            height: 42px;
+            background-color: #1d4ed8;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size:   25px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.1s;
+        }
+
+        .btn-counter:active {
+            background-color: #1e40af;
+        }
+
+        .btn-counter.btn-minus {
+            background-color: #1e2d4a;
+            color: #3b82f6;
+        }
+        
+        .btn-counter.btn-minus:active {
+            background-color: #111c33;
+        }
+
+        /* SUMMARY & BUTTONS */
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .summary-label { color: #9ca3af; }
+        .summary-value { font-weight: 700; }
+        .summary-value.blue { color: #3b82f6; }
+        .summary-value.total-price { font-size: 20px; font-weight: 900; color: #10b981; }
+        .divider { height: 1px; background-color: #1e2d4a; margin: 16px 0; }
+
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .payment-btn {
+            background-color: #0b1426;
+            border: 1px solid #1e2d4a;
+            color: #ffffff;
+            padding: 14px 0;
+            font-size: 11px;
+            font-weight: 800;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .payment-btn.active {
+            border-color: #3b82f6;
+            background-color: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+        }
+
+        .btn-order {
+            width: 100%;
+            background-color: #2563eb;
+            color: #ffffff;
+            border: none;
+            padding: 14px;
+            font-size: 14px;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+
+        /* FEATURES & TESTI */
+        .feature-item {
+            background-color: #111c33;
+            border: 1px solid #1e2d4a;
+            border-radius: 16px;
+            padding: 24px 20px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .feature-icon-box {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 20px;
+        }
+
+        .icon-blue { background-color: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+        .icon-green { background-color: rgba(16, 185, 129, 0.1); color: #10b981; }
+        .icon-amber { background-color: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+
+        .feature-text-box h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+        .feature-text-box p { font-size: 12px; color: #9ca3af; line-height: 1.5; }
+
+        .tos-list { list-style: none; }
+        .tos-list li { font-size: 12px; color: #9ca3af; line-height: 1.6; margin-bottom: 10px; position: relative; padding-left: 15px; }
+        .tos-list li::before { content: "•"; color: #4b5563; font-size: 14px; position: absolute; left: 0; }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR UTAMA -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <div class="logo-icon">NS</div>
+            <div class="logo-text">NALLSTORE<span class="logo-sub">.ID</span></div>
+        </div>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </nav>
+
+    <!-- MENU DROPDOWN -->
+    <div class="dropdown-menu" id="menuDropdown">
+        <a href="https://api.whatsapp.com/send?phone=6285750286706" target="_blank" class="btn-hubungi-kami">
+            <span>💬</span> Hubungi Kami
+        </a>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="#" class="menu-link">Home</a>
+            <a href="#" class="menu-link">Daftar Harga</a>
+            <a href="#" class="menu-link">Cek Pesanan</a>
+            <a href="#" class="menu-link">Hubungi CS</a>
+        </div>
+    </div>
+
+    <main class="container">
+
+        <!-- DAFTAR HARGA -->
+        <div>
+            <div class="section-header">
+                <div class="title-line"></div>
+                <h2 class="section-title">Daftar Harga per Bintang / Skor</h2>
+            </div>
+            
+            <div class="price-grid">
+                <div class="price-item"><p class="tier-title">Grand Master</p><p class="tier-price">Rp 2.000</p><p class="tier-unit">Per Bintang</p></div>
+                <div class="price-item"><p class="tier-title">Epic</p><p class="tier-price">Rp 3.000</p><p class="tier-unit">Per Bintang</p></div>
+                <div class="price-item"><p class="tier-title">Legend</p><p class="tier-price">Rp 5.000</p><p class="tier-unit">Per Bintang</p></div>
+                <div class="price-item"><p class="tier-title">Mythic</p><p class="tier-price">Rp 7.000</p><p class="tier-unit">Per Bintang</p></div>
+                <div class="price-item"><p class="tier-title">Mythic Honor</p><p class="tier-price">Rp 10.000</p><p class="tier-unit">Per Bintang</p></div>
+                <div class="price-item"><p class="tier-title">Mythic Glory</p><p class="tier-price">Rp 16.000</p><p class="tier-unit">Per Bintang</p></div>
+                <div class="price-item"><p class="tier-title">Immortal</p><p class="tier-price">Rp 21.000</p><p class="tier-unit">Per Bintang</p></div>
+                <div class="price-item"><p class="tier-title">Full Grading</p><p class="tier-price">Rp 120.000</p><p class="tier-unit">Per Paket</p></div>
+            </div>
+        </div>
+
+        <!-- STEP 1: DATA AKUN -->
+        <div class="card-block">
+            <div class="step-header">
+                <span class="step-number">1</span>
+                <h3 class="step-title">Lengkapi Data Akun</h3>
+            </div>
+            <div class="form-group">
+                <label class="form-label">User ID</label>
+                <input type="number" id="userId" placeholder="Contoh: 1114917746" class="form-input">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Zone ID / Server</label>
+                <input type="number" id="zoneId" placeholder="Contoh: 13486" class="form-input">
+            </div>
+        </div>
+
+        <!-- STEP 2: JUMLAH ORDER MINUS PLUS -->
+        <div class="card-block">
+            <div class="step-header">
+                <span class="step-number">2</span>
+                <h3 class="step-title">Jumlah Order</h3>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Pilih Paket / Tier Joki</label>
+                <select id="paketJoki" class="form-input" onchange="hitungHarga()">
+                    <!-- Data dimuat via JavaScript -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Tentukan Jumlah Bintang/Paket</label>
+                <div class="counter-container">
+                    <input type="number" id="jumlahOrder" value="1" min="1" class="counter-input" readonly>
+                    <button type="button" class="btn-counter btn-minus" onclick="ubahCounter(-1)">−</button>
+                    <button type="button" class="btn-counter btn-plus" onclick="ubahCounter(1)">+</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 3: DATA LOGIN -->
+        <div class="card-block">
+            <div class="step-header">
+                <span class="step-number">3</span>
+                <h3 class="step-title">Kredensial Login Sistem Keamanan</h3>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Login Via</label>
+                <select id="loginVia" class="form-input">
+                    <option value="VK">VK</option>
+                    <option value="Moonton">Moonton</option>
+                    <option value="TikTok">TikTok</option>
+                    <option value="Facebook">Facebook</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Email Moonton / ID Login</label>
+                <input type="text" id="loginEmail" placeholder="Masukkan Email Moonton / User ID" class="form-input">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Kata Sandi / Password</label>
+                <input type="password" id="loginPassword" placeholder="Masukkan Kata Sandi Akun" class="form-input">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Nomor HP / WhatsApp Aktif</label>
+                <input type="tel" id="nomorWa" placeholder="Contoh: 085750286706" class="form-input">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Catatan untuk Penjoki (Request Hero/Role)</label>
+                <textarea id="catatan" rows="3" placeholder="Contoh: Request role Marksman/Mage. Khusus hero Beatrix atau Nana jika memungkinkan." class="form-input"></textarea>
+            </div>
+        </div>
+
+        <!-- STEP 4: RINGKASAN & METODE -->
+        <div class="card-block">
+            <div class="step-header">
+                <span class="step-number">4</span>
+                <h3 class="step-title">Ringkasan Belanja</h3>
+            </div>
+            
+            <div class="summary-row">
+                <span class="summary-label">Paket Terpilih:</span>
+                <span id="txtTier" class="summary-value blue">-</span>
+            </div>
+            <div class="summary-row">
+                <span class="summary-label">Total Kuantitas:</span>
+                <span id="txtBintang" class="summary-value">-</span>
+            </div>
+            <div class="divider"></div>
+            <div class="summary-row">
+                <span class="summary-label" style="font-weight: 500;">Total Harga:</span>
+                <span id="txtHarga" class="summary-value total-price">Rp 0</span>
+            </div>
+
+            <div class="divider" style="margin-top: 12px;"></div>
+            <p class="form-label" style="font-weight: 700; text-transform: uppercase;">Metode Pembayaran:</p>
+            
+            <div class="payment-grid">
+                <button type="button" id="pay-SEABANK" onclick="selectPayment('SEABANK')" class="payment-btn">SEABANK</button>
+                <button type="button" id="pay-DANA" onclick="selectPayment('DANA')" class="payment-btn">DANA</button>
+                <button type="button" id="pay-OVO" onclick="selectPayment('OVO')" class="payment-btn">OVO</button>
+                <button type="button" id="pay-QRIS" onclick="selectPayment('QRIS')" class="payment-btn">QRIS</button>
+            </div>
+
+            <button type="button" onclick="kirimOrderan()" class="btn-order">
+                <span>Pesan Sekarang</span>
+            </button>
+        </div>
+
+        <!-- LAYANAN KEUNGGULAN -->
+        <div class="feature-item">
+            <div class="feature-icon-box icon-blue">⚡</div>
+            <div class="feature-text-box">
+                <h4>Proses Kilat</h4>
+                <p>Pesanan langsung diproses setelah pembayaran divalidasi oleh sistem kami.</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon-box icon-green">🛡️</div>
+            <div class="feature-text-box">
+                <h4>100% Aman & Legal</h4>
+                <p>Dikerjakan oleh pro player berpengalaman tanpa menggunakan program ilegal/cheat.</p>
+            </div>
+        </div>
+
+        <!-- KETENTUAN & GARANSI -->
+        <div>
+            <div class="section-header">
+                <div class="title-line"></div>
+                <h2 class="section-title">Ketentuan & Garansi</h2>
+            </div>
+            <div class="card-block">
+                <ul class="tos-list">
+                    <li>Pastikan data akun yang dikirimkan sudah benar dan valid.</li>
+                    <li><strong>Dilarang keras</strong> menabrak login selama proses joki berlangsung.</li>
+                </ul>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ENGINE JAVASCRIPT -->
+    <script>
+        const NOMOR_ADMIN = "6285750286706";
+
+        const listPaket = [
+            { name: "Grand Master (Per Bintang)", price: 2000, unit: "Bintang" },
+            { name: "Epic (Per Bintang)", price: 3000, unit: "Bintang" },
+            { name: "Legend (Per Bintang)", price: 5000, unit: "Bintang" },
+            { name: "Mythic (Per Bintang)", price: 7000, unit: "Bintang" },
+            { name: "Mythic Honor (Per Bintang)", price: 10000, unit: "Bintang" },
+            { name: "Mythic Glory (Per Bintang)", price: 16000, unit: "Bintang" },
+            { name: "Immortal (Per Bintang)", price: 21000, unit: "Bintang" },
+            { name: "Full Grading (Per Paket)", price: 120000, unit: "Paket" }
+        ];
+
+        let selectedPaymentMethod = "";
+        let globalTotalHarga = 0; // Untuk menyimpan angka bersih harga total
+
+        function toggleMenu() {
+            const menu = document.getElementById("menuDropdown");
+            menu.classList.toggle("active");
+        }
+
+        window.onload = function() {
+            const selectPaket = document.getElementById("paketJoki");
+            listPaket.forEach((paket, index) => {
+                let opt = document.createElement("option");
+                opt.value = index;
+                opt.text = `${paket.name} - Rp ${paket.price.toLocaleString("id-ID")}`;
+                selectPaket.add(opt);
+            });
+            hitungHarga();
+        };
+
+        function ubahCounter(nilai) {
+            const inputCounter = document.getElementById("jumlahOrder");
+            let currentVal = parseInt(inputCounter.value);
+            currentVal += nilai;
+            
+            if (currentVal < 1) currentVal = 1;
+            inputCounter.value = currentVal;
+            
+            hitungHarga();
+        }
+
+        function hitungHarga() {
+            const idxPaket = document.getElementById("paketJoki").value;
+            const jumlah = parseInt(document.getElementById("jumlahOrder").value);
+            const paketObj = listPaket[idxPaket];
+
+            globalTotalHarga = jumlah * paketObj.price; // Menyimpan angka bersihnya ke global variabel
+
+            document.getElementById("txtTier").innerText = paketObj.name;
+            document.getElementById("txtBintang").innerText = `${jumlah} ${paketObj.unit}`;
+            document.getElementById("txtHarga").innerText = "Rp " + globalTotalHarga.toLocaleString("id-ID");
+        }
+
+        function selectPayment(method) {
+            selectedPaymentMethod = method;
+            const buttons = document.querySelectorAll(".payment-btn");
+            buttons.forEach(btn => btn.classList.remove("active"));
+            document.getElementById("pay-" + method).classList.add("active");
+        }
+
+        function kirimOrderan() {
+            const userId = document.getElementById("userId").value.trim();
+            const zoneId = document.getElementById("zoneId").value.trim();
+            const idxPaket = document.getElementById("paketJoki").value;
+            const jumlah = document.getElementById("jumlahOrder").value;
+            const loginVia = document.getElementById("loginVia").value;
+            const loginEmail = document.getElementById("loginEmail").value.trim();
+            const loginPassword = document.getElementById("loginPassword").value.trim();
+            const nomorWa = document.getElementById("nomorWa").value.trim();
+            const catatan = document.getElementById("catatan").value.trim() || "-";
+
+            if (!userId || !zoneId || !loginEmail || !loginPassword || !nomorWa) {
+                alert("Harap isi semua data formulir akun terlebih dahulu!");
+                return;
+            }
+
+            if (!selectedPaymentMethod) {
+                alert("Silakan pilih salah satu metode pembayaran!");
+                return;
+            }
+
+            const paketTerpilih = listPaket[idxPaket].name;
+            const unitPaket = listPaket[idxPaket].unit;
+            // Menghasilkan string berformat rapi "Rp 30.000" tanpa double teks seperti di screenshot sebelumnya
+            const formatHargaString = "Rp " + globalTotalHarga.toLocaleString("id-ID");
+
+            const teksWA = `Halo NALLSTORE.ID, saya mau order joki MLBB dengan detail berikut:\n\n` +
+                           `1. DATA AKUN\n` +
+                           ` User ID: ${userId}\n` +
+                           ` Zone ID: ${zoneId}\n\n` +
+                           `2. TARGET JOKI\n` +
+                           ` Paket: ${paketTerpilih}\n` +
+                           ` Jumlah Kuantitas: ${jumlah} ${unitPaket}\n\n` +
+                           `3. DATA LOGIN\n` +
+                           ` Login Via: ${loginVia}\n` +
+                           ` Email/ID: ${loginEmail}\n` +
+                           ` Password: ${loginPassword}\n` +
+                           ` No. WA Pembeli: ${nomorWa}\n` +
+                           ` Catatan Hero/Role: ${catatan}\n\n` +
+                           `4. METODE PEMBAYARAN\n` +
+                           ` Metode: ${selectedPaymentMethod}\n` +
+                           ` Total Harga: *${formatHargaString}*`;
+
+            // Menggunakan URL API WhatsApp resmi agar kompatibel dengan seluruh aplikasi dan browser WebView
+            const urlWhatsApp = `https://api.whatsapp.com/send?phone=${NOMOR_ADMIN}&text=${encodeURIComponent(teksWA)}`;
+            window.open(urlWhatsApp, '_blank');
+        }
+    </script>
+</body>
+</html>
